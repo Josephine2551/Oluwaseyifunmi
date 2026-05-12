@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josephine Marketing Hub | Professional Book Marketing Specialist Agency</title>
+    <meta name="description" content="Josephine Marketing Hub is a specialist book marketing agency that works exclusively with authors who are serious about transforming their books into strategically positioned, consistently selling, and professionally marketed titles in today's competitive publishing market.">
+    <meta name="keywords" content="book marketing, author marketing, book launch strategy, amazon book optimization, author branding, book advertising, publishing marketing, book sales, author brand strategy">
+    <meta name="author" content="Josephine Marketing Hub">
+    <meta property="og:title" content="Josephine Marketing Hub | Book Marketing Specialist">
+    <meta property="og:description" content="Strategic book marketing for authors ready to scale their sales.">
+    <meta property="og:image" content="Josephines.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="Josephines.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C9A962;
+            --gold-light: #DABE80;
+            --gold-dark: #A8893F;
+            --gold-glow: rgba(201, 169, 98, 0.12);
+            --gold-border: rgba(201, 169, 98, 0.22);
+            --gold-subtle: rgba(201, 169, 98, 0.06);
+            --navy-1: #040810;
+            --navy-2: #0A1120;
+            --navy-3: #0E1830;
+            --navy-4: #132040;
+            --navy-card: #0F1D35;
+            --white: #FFFFFF;
+            --text-1: #ECE9E1;
+            --text-2: #B8BABE;
+            --text-3: #808694;
+            --text-4: #5A6070;
+            --radius-xs: 3px;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --radius-round: 50%;
+            --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy-1);
+            color: var(--text-1);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection { background: var(--gold); color: var(--navy-1); }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ==================== PRELOADER ==================== */
+        .preloader {
+            position: fixed; inset: 0;
+            background: var(--navy-1);
+            z-index: 999999;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
+        }
+        .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+        .preloader-img {
+            width: 85px; height: 85px; border-radius: var(--radius-round);
+            border: 2px solid var(--gold); object-fit: cover;
+            animation: plPulse 2s ease-in-out infinite; margin-bottom: 22px;
+        }
+        @keyframes plPulse {
+            0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201,169,98,0.25); }
+            50% { transform: scale(1.06); box-shadow: 0 0 35px 8px rgba(201,169,98,0.12); }
+        }
+        .preloader-name {
+            font-family: 'Playfair Display', serif; color: var(--gold);
+            font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase;
+            font-weight: 600; margin-bottom: 28px;
+        }
+        .preloader-track { width: 200px; height: 2px; background: var(--navy-3); border-radius: 4px; overflow: hidden; }
+        .preloader-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            animation: plFill 2.3s ease-in-out forwards;
+        }
+        @keyframes plFill {
+            0% { width: 0%; } 35% { width: 40%; } 65% { width: 72%; } 100% { width: 100%; }
+        }
+
+        /* ==================== LIGHTBOX ==================== */
+        .lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.93);
+            z-index: 500000; display: none; align-items: center; justify-content: center;
+            padding: 30px; opacity: 0; transition: opacity 0.35s ease;
+        }
+        .lightbox.show { display: flex; opacity: 1; }
+        .lightbox img {
+            max-width: 94%; max-height: 92vh; object-fit: contain;
+            border-radius: var(--radius-md); border: 2px solid var(--gold-border);
+            box-shadow: 0 0 60px rgba(201,169,98,0.15);
+        }
+        .lb-close {
+            position: absolute; top: 20px; right: 30px;
+            color: var(--gold); font-size: 2.2rem; cursor: pointer;
+            background: none; border: none; z-index: 500001;
+            transition: 0.3s ease;
+        }
+        .lb-close:hover { color: var(--white); transform: scale(1.15); }
+
+        /* ==================== NAVBAR ==================== */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 90000;
+            padding: 16px 0; transition: 0.4s var(--ease);
+        }
+        .nav.fixed {
+            background: rgba(4,8,16,0.94); backdrop-filter: blur(22px);
+            padding: 10px 0; border-bottom: 1px solid var(--gold-border);
+        }
+        .nav-wrap {
+            max-width: 1400px; margin: 0 auto; padding: 0 48px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .nav-brand-img {
+            width: 42px; height: 42px; border-radius: var(--radius-round);
+            border: 2px solid var(--gold); object-fit: cover;
+            transition: 0.4s var(--ease);
+        }
+        .nav-brand:hover .nav-brand-img { box-shadow: 0 0 18px rgba(201,169,98,0.25); }
+        .nav-brand-info { display: flex; flex-direction: column; }
+        .nav-brand-title {
+            font-family: 'Playfair Display', serif; font-size: 1.02rem;
+            font-weight: 700; color: var(--gold); letter-spacing: 0.3px; line-height: 1.2;
+        }
+        .nav-brand-sub {
+            font-size: 0.6rem; color: var(--text-3); letter-spacing: 2.5px;
+            text-transform: uppercase; font-weight: 500;
+        }
+        .nav-links { display: flex; align-items: center; gap: 36px; }
+        .nav-link {
+            font-size: 0.8rem; font-weight: 500; color: var(--text-2);
+            letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer;
+            position: relative; padding: 4px 0; transition: 0.3s ease;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 0; height: 1.5px; background: var(--gold);
+            transition: 0.4s var(--ease);
+        }
+        .nav-link:hover, .nav-link.on { color: var(--gold); }
+        .nav-link:hover::after, .nav-link.on::after { width: 100%; }
+        .nav-btn {
+            font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
+            color: var(--navy-1); background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            padding: 10px 26px; border-radius: var(--radius-xs); letter-spacing: 1px;
+            text-transform: uppercase; cursor: pointer; border: none;
+            transition: 0.4s var(--ease);
+        }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(201,169,98,0.28); }
+
+        /* Mobile */
+        .mob-toggle {
+            display: none; background: none; border: none; cursor: pointer;
+            padding: 6px; z-index: 90001;
+        }
+        .mob-bar {
+            display: block; width: 23px; height: 2px; background: var(--gold);
+            margin: 5px 0; transition: 0.3s ease; border-radius: 2px;
+        }
+        .mob-toggle.open .mob-bar:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .mob-toggle.open .mob-bar:nth-child(2) { opacity: 0; }
+        .mob-toggle.open .mob-bar:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        .mob-menu {
+            display: none; position: fixed; inset: 0; background: rgba(4,8,16,0.98);
+            z-index: 89999; align-items: center; justify-content: center;
+            flex-direction: column; gap: 28px;
+        }
+        .mob-menu.open { display: flex; }
+        .mob-menu .nav-link { font-size: 1rem; letter-spacing: 2px; }
+        .mob-menu .nav-btn { font-size: 0.88rem; padding: 14px 34px; margin-top: 12px; }
+
+        /* ==================== COMMON ==================== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+        .container-w { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+        .container-n { max-width: 920px; margin: 0 auto; padding: 0 48px; }
+        .sect { padding: 128px 0; }
+        .sect-sm { padding: 90px 0; }
+        .bg1 { background: var(--navy-1); }
+        .bg2 { background: var(--navy-2); }
+        .bg3 { background: var(--navy-3); }
+
+        .s-header { text-align: center; max-width: 850px; margin: 0 auto 85px; }
+        .s-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+            padding: 7px 18px; background: var(--gold-subtle);
+            border: 1px solid var(--gold-border); border-radius: 28px;
+        }
+        .s-title {
+            font-family: 'Playfair Display', serif; font-size: 2.8rem;
+            font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 18px;
+        }
+        .s-title .g { color: var(--gold); }
+        .s-div { width: 52px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 20px auto; }
+        .s-desc { font-size: 1.02rem; line-height: 1.95; color: var(--text-2); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            font-family: 'Inter', sans-serif; font-weight: 700;
+            font-size: 0.8rem; letter-spacing: 1.8px; text-transform: uppercase;
+            padding: 15px 36px; border-radius: var(--radius-xs);
+            cursor: pointer; transition: 0.4s var(--ease); border: none;
+        }
+        .btn-g { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-1); }
+        .btn-g:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(201,169,98,0.28); }
+        .btn-o { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+        .btn-o:hover { background: var(--gold-subtle); transform: translateY(-3px); }
+        .btn-s { padding: 11px 26px; font-size: 0.76rem; letter-spacing: 1.4px; }
+
+        /* Content Block */
+        .cb { max-width: 950px; margin: 0 auto; }
+        .cb p { font-size: 1.04rem; line-height: 2.05; color: var(--text-1); margin-bottom: 22px; }
+        .cb p:last-child { margin-bottom: 0; }
+        .cb-head {
+            font-family: 'Playfair Display', serif; font-size: 2.05rem;
+            color: var(--white); line-height: 1.35; margin-bottom: 28px;
+        }
+        .cb-head .g { color: var(--gold); }
+        .cb a.gl { color: var(--gold); font-weight: 600; }
+        .cb a.gl:hover { text-decoration: underline; }
+
+        .hbox {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
+            color: var(--gold); line-height: 1.6; padding: 32px 38px;
+            border-left: 3px solid var(--gold); background: var(--gold-subtle);
+            margin: 42px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-weight: 500;
+        }
+
+        .gold-line { width: 48px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin-bottom: 18px; }
+
+        /* Cards */
+        .cg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .cg3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+        .crd {
+            background: var(--navy-card); border: 1px solid rgba(201,169,98,0.08);
+            border-radius: var(--radius-lg); padding: 40px;
+            transition: 0.4s var(--ease);
+        }
+        .crd:hover { border-color: var(--gold-border); transform: translateY(-4px); box-shadow: 0 0 35px rgba(201,169,98,0.08); }
+        .crd-icon {
+            width: 50px; height: 50px; background: var(--gold-subtle);
+            border: 1px solid var(--gold-border); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 1.1rem; margin-bottom: 20px;
+        }
+        .crd h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 12px; line-height: 1.35; }
+        .crd p { font-size: 0.92rem; line-height: 1.88; color: var(--text-3); }
+        .crd-full { grid-column: 1 / -1; }
+
+        /* Standards */
+        .std-list { margin: 32px 0; }
+        .std-list li { padding: 13px 0 13px 30px; position: relative; font-size: 1rem; color: var(--text-1); line-height: 1.85; }
+        .std-list li::before { content: ''; position: absolute; left: 0; top: 20px; width: 8px; height: 8px; background: var(--gold); border-radius: var(--radius-round); }
+
+        /* CTA */
+        .cta { text-align: center; padding: 128px 0; position: relative; overflow: hidden; }
+        .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--gold-subtle) 0%, transparent 62%); }
+        .cta-in { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+        .cta-h { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--white); line-height: 1.28; margin-bottom: 20px; }
+        .cta-p { font-size: 1.02rem; color: var(--text-2); line-height: 1.92; margin-bottom: 12px; }
+        .cta-note { font-size: 0.92rem; color: var(--text-3); margin-bottom: 36px; }
+        .cta-note a { color: var(--gold); font-weight: 600; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+        /* Page Hero */
+        .ph { padding: 185px 0 105px; text-align: center; position: relative; overflow: hidden; }
+        .ph::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top, rgba(201,169,98,0.05) 0%, transparent 52%); }
+        .ph-in { position: relative; z-index: 1; }
+        .ph-badge { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 8px; }
+        .ph-title { font-family: 'Playfair Display', serif; font-size: 2.9rem; color: var(--white); max-width: 880px; margin: 0 auto 16px; line-height: 1.22; }
+        .ph-title .g { color: var(--gold); }
+        .ph-desc { font-size: 0.98rem; color: var(--text-3); max-width: 720px; margin: 0 auto; line-height: 1.85; }
+
+        /* Benefit Cards */
+        .bf-card { padding: 32px; background: var(--gold-subtle); border: 1px solid rgba(201,169,98,0.1); border-radius: var(--radius-md); transition: 0.4s var(--ease); }
+        .bf-card:hover { border-color: var(--gold-border); }
+        .bf-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 8px; }
+        .bf-card p { font-size: 0.91rem; color: var(--text-3); line-height: 1.8; }
+
+        /* Mission/Vision */
+        .mv { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; }
+        .mv-box { padding: 48px; border-radius: var(--radius-lg); }
+        .mv-box.mission { background: var(--gold-subtle); border: 1px solid var(--gold-border); }
+        .mv-box.vision { background: var(--navy-card); border: 1px solid rgba(201,169,98,0.08); }
+        .mv-box h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--gold); margin-bottom: 16px; }
+        .mv-box p { font-size: 1rem; line-height: 1.9; color: var(--text-1); }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            position: relative; overflow: hidden; padding: 95px 0 75px;
+        }
+        .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(4,8,16,0.98), rgba(10,17,32,0.96), rgba(14,24,48,0.92)); z-index: 1; }
+        .hero-pts { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+        .hero-pt {
+            position: absolute; background: var(--gold); border-radius: var(--radius-round);
+            opacity: 0; animation: ptFloat 10s ease-in-out infinite;
+        }
+        @keyframes ptFloat {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            15% { opacity: 0.45; } 85% { opacity: 0.15; }
+            100% { opacity: 0; transform: translateY(-120px) scale(1); }
+        }
+        .hero-grid {
+            position: relative; z-index: 2; max-width: 1400px;
+            margin: 0 auto; padding: 0 48px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 75px; align-items: center;
+        }
+        .hero-c { max-width: 630px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--gold-subtle); border: 1px solid var(--gold-border);
+            padding: 8px 20px; border-radius: 28px; font-size: 0.7rem;
+            letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+            font-weight: 600; margin-bottom: 28px;
+            animation: hUp 0.8s ease 0.2s both;
+        }
+        .hero-h {
+            font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 800;
+            color: var(--white); line-height: 1.18; margin-bottom: 26px;
+            animation: hUp 0.8s ease 0.4s both;
+        }
+        .hero-h .hg { color: var(--gold); display: block; margin-top: 4px; }
+        .hero-p { font-size: 1.04rem; line-height: 1.95; color: var(--text-2); margin-bottom: 16px; animation: hUp 0.8s ease 0.6s both; }
+        .hero-p2 { font-size: 0.94rem; line-height: 1.95; color: var(--text-3); margin-bottom: 38px; animation: hUp 0.8s ease 0.7s both; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: hUp 0.8s ease 0.85s both; }
+        @keyframes hUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+
+        .hero-v { display: flex; justify-content: center; align-items: center; animation: hSlide 1s ease 0.5s both; }
+        @keyframes hSlide { from { opacity: 0; transform: translateX(55px); } to { opacity: 1; transform: translateX(0); } }
+
+        .hero-img-w { position: relative; width: 370px; height: 470px; }
+        .hero-img-accent { position: absolute; top: 22px; left: 22px; right: -22px; bottom: -22px; border: 2px solid rgba(201,169,98,0.18); border-radius: var(--radius-md); }
+        .hero-img-box { position: relative; width: 100%; height: 100%; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--gold-border); }
+        .hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-tag {
+            position: absolute; bottom: -16px; left: -22px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy-1); padding: 13px 22px; border-radius: var(--radius-md);
+            font-weight: 700; font-size: 0.8rem; letter-spacing: 0.3px;
+            box-shadow: 0 10px 28px rgba(201,169,98,0.28); z-index: 3; line-height: 1.3;
+        }
+        .hero-tag small { display: block; font-size: 0.66rem; font-weight: 500; opacity: 0.82; margin-top: 2px; }
+
+        /* ==================== PROCESS STEPS (HOME) ==================== */
+        .steps-r { display: grid; grid-template-columns: repeat(5,1fr); gap: 20px; position: relative; }
+        .steps-r::before { content: ''; position: absolute; top: 40px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+        .step { text-align: center; position: relative; z-index: 1; }
+        .step-c {
+            width: 80px; height: 80px; background: var(--navy-card);
+            border: 2px solid var(--gold); border-radius: var(--radius-round);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-family: 'Playfair Display', serif;
+            font-size: 1.45rem; color: var(--gold); font-weight: 700;
+            transition: 0.4s var(--ease);
+        }
+        .step:hover .step-c { background: var(--gold); color: var(--navy-1); box-shadow: 0 0 35px rgba(201,169,98,0.18); }
+        .step h4 { font-family: 'Playfair Display', serif; font-size: 0.92rem; color: var(--white); margin-bottom: 7px; }
+        .step p { font-size: 0.8rem; color: var(--text-3); line-height: 1.62; }
+
+        /* ==================== SERVICE BLOCKS ==================== */
+        .svc {
+            background: var(--navy-card); border: 1px solid rgba(201,169,98,0.08);
+            border-radius: var(--radius-lg); padding: 52px; margin-bottom: 52px;
+            transition: 0.4s var(--ease);
+        }
+        .svc:hover { border-color: var(--gold-border); }
+        .svc:last-child { margin-bottom: 0; }
+        .svc-num { font-family: 'Playfair Display', serif; font-size: 4.2rem; color: rgba(201,169,98,0.08); font-weight: 800; line-height: 1; margin-bottom: 6px; }
+        .svc-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--white); line-height: 1.3; margin-bottom: 22px; }
+        .svc-ov p { font-size: 1rem; line-height: 2; color: var(--text-1); margin-bottom: 16px; }
+        .svc-label { font-family: 'Playfair Display', serif; font-size: 1.12rem; color: var(--gold); margin: 38px 0 26px; padding-bottom: 12px; border-bottom: 1px solid rgba(201,169,98,0.12); }
+        .svc-it { margin-bottom: 26px; padding-left: 20px; border-left: 2px solid rgba(201,169,98,0.12); }
+        .svc-it h4 { font-size: 1rem; color: var(--white); font-weight: 600; margin-bottom: 5px; }
+        .svc-it p { font-size: 0.92rem; line-height: 1.88; color: var(--text-3); }
+        .svc-ft {
+            margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(201,169,98,0.1);
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+        }
+        .svc-ft-text { font-size: 0.9rem; color: var(--text-3); }
+        .svc-ft-text a { color: var(--gold); font-weight: 600; }
+        .svc-ft-text a:hover { text-decoration: underline; }
+
+        /* ==================== PROCESS DETAILED ==================== */
+        .prb {
+            display: grid; grid-template-columns: 95px 1fr; gap: 38px;
+            margin-bottom: 62px; padding-bottom: 62px;
+            border-bottom: 1px solid rgba(201,169,98,0.06);
+        }
+        .prb:last-of-type { border-bottom: none; padding-bottom: 0; }
+        .prb-ind { text-align: center; }
+        .prb-num {
+            width: 75px; height: 75px; background: var(--gold-subtle);
+            border: 2px solid var(--gold); border-radius: var(--radius-round);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; font-size: 1.7rem;
+            color: var(--gold); font-weight: 700; margin: 0 auto;
+        }
+        .prb-line { width: 2px; flex: 1; background: linear-gradient(180deg, var(--gold), transparent); margin: 12px auto 0; min-height: 35px; }
+        .prb-body h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 16px; }
+        .prb-body p { font-size: 1rem; line-height: 2; color: var(--text-1); margin-bottom: 16px; }
+        .chk li { padding: 8px 0 8px 26px; position: relative; font-size: 0.94rem; color: var(--text-1); }
+        .chk li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 11px; }
+        .rg { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 26px; }
+        .rc { background: var(--gold-subtle); border: 1px solid rgba(201,169,98,0.08); border-radius: var(--radius-md); padding: 22px; }
+        .rc h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--gold); margin-bottom: 7px; }
+        .rc p { font-size: 0.86rem; line-height: 1.72; color: var(--text-3); margin-bottom: 0; }
+
+        /* ==================== AUTHOR CARDS ==================== */
+        .ac {
+            background: var(--navy-card); border: 1px solid rgba(201,169,98,0.08);
+            border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 52px;
+            transition: 0.4s var(--ease);
+        }
+        .ac:hover { border-color: var(--gold-border); box-shadow: 0 0 40px rgba(201,169,98,0.08); }
+        .ac:last-child { margin-bottom: 0; }
+        .ac-grid { display: grid; grid-template-columns: 330px 1fr; }
+        .ac-vis {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 48px 32px; background: rgba(201,169,98,0.015);
+            border-right: 1px solid rgba(201,169,98,0.06); gap: 26px;
+        }
+        /* Circle photo */
+        .ac-pw { position: relative; cursor: pointer; width: 148px; height: 148px; }
+        .ac-photo {
+            width: 148px; height: 148px; border-radius: var(--radius-round);
+            object-fit: cover; border: 3px solid var(--gold); transition: 0.4s var(--ease);
+        }
+        .ac-pw:hover .ac-photo { transform: scale(1.04); box-shadow: 0 0 32px rgba(201,169,98,0.22); }
+        .ac-po {
+            position: absolute; inset: 0; border-radius: var(--radius-round);
+            background: rgba(201,169,98,0.16); display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.4s var(--ease);
+        }
+        .ac-pw:hover .ac-po { opacity: 1; }
+        .ac-po i { color: var(--white); font-size: 1.3rem; }
+        /* Square book */
+        .ac-bw { position: relative; cursor: pointer; width: 178px; }
+        .ac-book {
+            width: 178px; height: 252px; object-fit: cover; border-radius: var(--radius-md);
+            border: 1px solid var(--gold-border); box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+            transition: 0.4s var(--ease);
+        }
+        .ac-bw:hover .ac-book { transform: scale(1.03); box-shadow: 0 14px 42px rgba(201,169,98,0.15); }
+        .ac-bo {
+            position: absolute; inset: 0; border-radius: var(--radius-md);
+            background: rgba(10,17,32,0.52); display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.4s var(--ease);
+        }
+        .ac-bw:hover .ac-bo { opacity: 1; }
+        .ac-bo i { color: var(--gold); font-size: 1.9rem; }
+        /* Info */
+        .ac-info { padding: 48px; }
+        .ac-name { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--white); margin-bottom: 4px; }
+        .ac-row { display: grid; grid-template-columns: 158px 1fr; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .ac-lbl { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .ac-val { font-size: 0.93rem; color: var(--text-1); line-height: 1.7; }
+        .ac-val a { color: var(--gold); }
+        .ac-val a:hover { text-decoration: underline; }
+        .ac-qt {
+            margin-top: 26px; padding: 23px 28px; background: var(--gold-subtle);
+            border-left: 3px solid var(--gold); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+        .ac-qt p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--text-1); line-height: 1.8; }
+        .ac-qt-n { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--gold); margin-top: 9px; font-style: normal; font-weight: 600; }
+
+        /* ==================== CONTACT ==================== */
+        .cn-notice {
+            max-width: 900px; margin: 0 auto 58px; background: var(--gold-subtle);
+            border: 1px solid var(--gold-border); border-radius: var(--radius-lg); padding: 40px 48px;
+        }
+        .cn-notice h3 { font-family: 'Playfair Display', serif; font-size: 1.22rem; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 9px; }
+        .cn-notice p { font-size: 0.96rem; line-height: 1.88; color: var(--text-1); margin-bottom: 12px; }
+        .cn-notice p:last-child { margin-bottom: 0; }
+        .cn-notice a { color: var(--gold); font-weight: 600; }
+
+        .form-c { max-width: 900px; margin: 0 auto; }
+        .form-t { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--white); text-align: center; margin-bottom: 38px; }
+        .form-g { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .fg { display: flex; flex-direction: column; }
+        .fg.fw { grid-column: 1 / -1; }
+        .fg label { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 7px; }
+        .fg input, .fg select, .fg textarea {
+            width: 100%; padding: 13px 16px; background: var(--navy-card);
+            border: 1px solid rgba(201,169,98,0.1); border-radius: var(--radius-md);
+            color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.93rem;
+            transition: 0.3s ease; line-height: 1.6;
+        }
+        .fg input::placeholder, .fg textarea::placeholder { color: var(--text-4); }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,98,0.06); }
+        .fg select {
+            appearance: none; cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23C9A962' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
+        }
+        .fg select option { background: var(--navy-card); color: var(--white); }
+        .fg textarea { resize: vertical; min-height: 130px; }
+        .form-sub { grid-column: 1 / -1; text-align: center; margin-top: 16px; }
+        .form-sub-btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy-1); padding: 17px 50px; border-radius: var(--radius-xs);
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.86rem;
+            letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
+            transition: 0.4s var(--ease);
+        }
+        .form-sub-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(201,169,98,0.28); }
+        .form-sub-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+        .ps { max-width: 900px; margin: 75px auto 0; }
+        .ps-t { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--white); text-align: center; margin-bottom: 32px; }
+        .ps-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+        .ps-s { background: var(--navy-card); border: 1px solid rgba(201,169,98,0.06); border-radius: var(--radius-md); padding: 26px; text-align: center; }
+        .ps-n { width: 36px; height: 36px; background: var(--gold-subtle); border: 1px solid var(--gold); border-radius: var(--radius-round); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: 'Playfair Display', serif; color: var(--gold); font-weight: 700; font-size: 0.88rem; }
+        .ps-s h4 { font-size: 0.9rem; color: var(--white); margin-bottom: 7px; }
+        .ps-s p { font-size: 0.8rem; color: var(--text-3); line-height: 1.68; }
+
+        .de-box {
+            max-width: 660px; margin: 72px auto 0; text-align: center; padding: 46px;
+            background: var(--navy-card); border: 1px solid rgba(201,169,98,0.08); border-radius: var(--radius-lg);
+        }
+        .de-box h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--white); margin-bottom: 12px; }
+        .de-box p { font-size: 0.93rem; color: var(--text-3); line-height: 1.8; margin-bottom: 16px; }
+        .de-link { display: inline-flex; align-items: center; gap: 9px; color: var(--gold); font-size: 1.05rem; font-weight: 600; }
+        .de-link:hover { color: var(--gold-light); }
+        .de-note { font-size: 0.8rem; color: var(--text-4); font-style: italic; margin-top: 16px; }
+
+        /* ==================== FOOTER ==================== */
+        .footer { background: var(--navy-2); border-top: 1px solid rgba(201,169,98,0.06); padding: 78px 0 26px; }
+        .ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 52px; margin-bottom: 52px; }
+        .ft-desc { font-size: 0.88rem; color: var(--text-3); line-height: 1.8; margin: 16px 0 20px; max-width: 330px; }
+        .ft-email { display: inline-flex; align-items: center; gap: 7px; color: var(--gold); font-size: 0.86rem; }
+        .ft-email:hover { color: var(--gold-light); }
+        .ft-col-t { font-family: 'Playfair Display', serif; font-size: 0.98rem; color: var(--white); margin-bottom: 16px; letter-spacing: 0.3px; }
+        .ft-links li { margin-bottom: 9px; }
+        .ft-links a { font-size: 0.83rem; color: var(--text-3); }
+        .ft-links a:hover { color: var(--gold); }
+        .ft-bot { padding-top: 26px; border-top: 1px solid rgba(201,169,98,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .ft-copy { font-size: 0.76rem; color: var(--text-4); }
+        .ft-tag { font-family: 'Playfair Display', serif; font-size: 0.83rem; color: var(--gold); letter-spacing: 0.8px; }
+
+        /* ==================== SCROLL TOP ==================== */
+        .stt {
+            position: fixed; bottom: 26px; right: 26px; width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy-1); border: none; border-radius: var(--radius-round);
+            cursor: pointer; font-size: 0.95rem; display: flex; align-items: center;
+            justify-content: center; z-index: 8000; opacity: 0; visibility: hidden;
+            transform: translateY(8px); transition: 0.4s var(--ease);
+            box-shadow: 0 5px 20px rgba(201,169,98,0.22);
+        }
+        .stt.on { opacity: 1; visibility: visible; transform: translateY(0); }
+        .stt:hover { transform: translateY(-3px); }
+
+        /* ==================== ANIMATIONS ==================== */
+        .rv { opacity: 0; transform: translateY(38px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .rv.vis { opacity: 1; transform: translateY(0); }
+        .rv-d1 { transition-delay: 0.1s; } .rv-d2 { transition-delay: 0.2s; }
+        .rv-d3 { transition-delay: 0.3s; } .rv-d4 { transition-delay: 0.4s; }
+
+        /* ==================== PAGE SYSTEM ==================== */
+        .pg { display: none; opacity: 0; transition: opacity 0.45s ease; }
+        .pg.on { display: block; opacity: 1; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media(max-width:1100px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+            .hero-v { order: -1; }
+            .hero-img-w { width: 290px; height: 370px; }
+            .hero-h { font-size: 2.5rem; }
+            .s-title { font-size: 2.2rem; }
+            .cg2, .mv, .rg { grid-template-columns: 1fr; }
+            .steps-r { grid-template-columns: 1fr; gap: 32px; }
+            .steps-r::before { display: none; }
+            .ac-grid { grid-template-columns: 1fr; }
+            .ac-vis { border-right: none; border-bottom: 1px solid rgba(201,169,98,0.06); }
+            .prb { grid-template-columns: 72px 1fr; gap: 22px; }
+            .ft-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media(max-width:768px) {
+            .nav-links { display: none; }
+            .mob-toggle { display: block; }
+            html { font-size: 15px; }
+            .container, .container-w, .container-n, .nav-wrap { padding: 0 20px; }
+            .hero { padding: 88px 0 55px; }
+            .hero-grid { padding: 0 20px; }
+            .hero-h { font-size: 1.95rem; }
+            .hero-img-w { width: 235px; height: 305px; }
+            .hero-tag { bottom: -10px; left: -10px; padding: 9px 14px; font-size: 0.72rem; }
+            .hero-btns { flex-direction: column; }
+            .sect { padding: 78px 0; }
+            .sect-sm { padding: 58px 0; }
+            .s-header { margin-bottom: 52px; }
+            .s-title { font-size: 1.82rem; }
+            .ph { padding: 140px 0 68px; }
+            .ph-title { font-size: 1.95rem; }
+            .crd { padding: 28px; }
+            .cg3, .ps-g { grid-template-columns: 1fr; }
+            .svc { padding: 32px 22px; }
+            .svc-title { font-size: 1.35rem; }
+            .svc-num { font-size: 3.2rem; }
+            .svc-ft { flex-direction: column; text-align: center; }
+            .ac-info { padding: 28px; }
+            .ac-name { font-size: 1.35rem; }
+            .ac-row { grid-template-columns: 1fr; gap: 2px; }
+            .ac-pw, .ac-photo { width: 120px; height: 120px; }
+            .ac-bw { width: 150px; }
+            .ac-book { width: 150px; height: 212px; }
+            .form-g { grid-template-columns: 1fr; }
+            .fg { grid-column: 1 !important; }
+            .form-sub { grid-column: 1 !important; }
+            .cn-notice { padding: 26px; }
+            .cta-h { font-size: 1.8rem; }
+            .cta-btns { flex-direction: column; align-items: center; }
+            .cb-head { font-size: 1.55rem; }
+            .hbox { font-size: 1.15rem; padding: 22px 26px; }
+            .ft-bot { flex-direction: column; text-align: center; }
+            .nav-brand-sub { display: none; }
+        }
+        @media(max-width:480px) {
+            .hero-h { font-size: 1.65rem; }
+            .hero-img-w { width: 205px; height: 270px; }
+            .ac-pw, .ac-photo { width: 105px; height: 105px; }
+            .ac-bw { width: 135px; }
+            .ac-book { width: 135px; height: 190px; }
+            .btn { padding: 13px 26px; font-size: 0.76rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+    <img src="Josephines.png" alt="Josephine Marketing Hub" class="preloader-img">
+    <div class="preloader-name">Josephine Marketing Hub</div>
+    <div class="preloader-track"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb">
+    <button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button>
+    <img src="" alt="" id="lbImg">
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-wrap">
+        <div class="nav-brand" onclick="go('home')">
+            <img src="Josephines.png" alt="JMH" class="nav-brand-img">
+            <div class="nav-brand-info">
+                <span class="nav-brand-title">Josephine Marketing Hub</span>
+                <span class="nav-brand-sub">Book Marketing Specialist</span>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <span class="nav-link on" data-pg="home" onclick="go('home')">Home</span>
+            <span class="nav-link" data-pg="about" onclick="go('about')">About</span>
+            <span class="nav-link" data-pg="services" onclick="go('services')">Services</span>
+            <span class="nav-link" data-pg="process" onclick="go('process')">Our Process</span>
+            <span class="nav-link" data-pg="authors" onclick="go('authors')">Featured Authors</span>
+            <button class="nav-btn" onclick="go('contact')">Contact</button>
+        </div>
+        <button class="mob-toggle" id="mobTog" onclick="togMob()">
+            <span class="mob-bar"></span><span class="mob-bar"></span><span class="mob-bar"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+    <span class="nav-link" onclick="go('home');closeMob()">Home</span>
+    <span class="nav-link" onclick="go('about');closeMob()">About</span>
+    <span class="nav-link" onclick="go('services');closeMob()">Services</span>
+    <span class="nav-link" onclick="go('process');closeMob()">Our Process</span>
+    <span class="nav-link" onclick="go('authors');closeMob()">Featured Authors</span>
+    <button class="nav-btn" onclick="go('contact');closeMob()">Contact</button>
+</div>
+
+<!-- ======================== HOME ======================== -->
+<div class="pg on" id="pg-home">
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-pts" id="pts"></div>
+        <div class="hero-grid">
+            <div class="hero-c">
+                <div class="hero-badge"><i class="fas fa-book-open"></i> Specialist Book Marketing Agency</div>
+                <h1 class="hero-h">Your Book Deserves More Than Just Being Published.<span class="hg">It Deserves to Be Seen, Positioned, and Sold Strategically.</span></h1>
+                <p class="hero-p">Josephine Marketing Hub is a specialist book marketing agency that works exclusively with authors who are serious about transforming their books into strategically positioned, consistently selling, and professionally marketed titles in today's competitive publishing market.</p>
+                <p class="hero-p2">We do not offer shortcuts. We do not offer generic campaigns. We offer structured, expert driven, and deeply researched marketing strategies built specifically around your book, your audience, and your long term goals as an author.</p>
+                <div class="hero-btns">
+                    <button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Submit Your Book for Review</button>
+                    <a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-o"><i class="fas fa-envelope"></i> Request Service Information</a>
+                </div>
+            </div>
+            <div class="hero-v">
+                <div class="hero-img-w">
+                    <div class="hero-img-accent"></div>
+                    <div class="hero-img-box"><img src="Josephines.png" alt="Josephine Marketing Hub"></div>
+                    <div class="hero-tag">Book Marketing Specialist<small>Trusted by Authors Worldwide</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sect bg2">
+        <div class="container">
+            <div class="s-header rv"><div class="s-badge">The Hard Truth</div><h2 class="s-title">The Hard Truth About Book Marketing That Most Authors <span class="g">Discover Too Late</span></h2><div class="s-div"></div></div>
+            <div class="cb rv">
+                <p>Writing a great book is one of the most challenging and rewarding things a person can do. But the painful reality that thousands of authors discover every single year is that writing the book is only the beginning of the journey.</p>
+                <p>The publishing market today is more competitive than it has ever been. Millions of new titles are released every year across every genre and category. Readers have more choices available to them than at any point in the history of publishing. And the platforms where books are discovered, evaluated, and purchased operate on complex algorithms and behavioral patterns that most authors have never been trained to navigate.</p>
+                <p>The result is predictable. Talented authors with genuinely valuable books find themselves invisible in a crowded marketplace. Books that deserved to reach thousands of readers sit unnoticed. Sales that should have been achieved never materialize. And authors who poured years of their lives into their work are left wondering what went wrong.</p>
+                <div class="hbox">The answer is almost never the book itself. The answer is almost always the absence of a structured, researched, and expertly executed marketing strategy. This is the problem that Josephine Marketing Hub was built to solve.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sect bg1">
+        <div class="container">
+            <div class="s-header rv"><div class="s-badge">Why Choose Us</div><h2 class="s-title">What Sets Us Apart From Every Other <span class="g">Marketing Option</span></h2><div class="s-div"></div></div>
+            <div class="cg2">
+                <div class="crd rv"><div class="crd-icon"><i class="fas fa-book"></i></div><h3>Exclusive Book Marketing Specialization</h3><p>We work only in the publishing industry. Every member of our operation is focused entirely on books, authors, publishing platforms, and reader behavior. This level of specialization means we bring a depth of knowledge and practical expertise to every project that a generalist agency simply cannot match.</p></div>
+                <div class="crd rv rv-d1"><div class="crd-icon"><i class="fas fa-envelope-open-text"></i></div><h3>Documented Email Communication</h3><p>Every single aspect of your project is handled through documented email communication. From your initial submission to your final report, every decision, recommendation, milestone update, and result is communicated in writing and preserved as a permanent record.</p></div>
+                <div class="crd rv rv-d2"><div class="crd-icon"><i class="fas fa-microscope"></i></div><h3>Deep Research Before Any Recommendation</h3><p>Before we make any recommendation we conduct a thorough evaluation of your book, your genre, your target audience, your current market position, and the specific opportunities and challenges most relevant to your situation.</p></div>
+                <div class="crd rv rv-d3"><div class="crd-icon"><i class="fas fa-chart-line"></i></div><h3>Measurable Outcomes and Reporting</h3><p>Every strategy we execute is built around measurable objectives. We define what success looks like for your specific project before we begin and report against those objectives throughout your campaign.</p></div>
+                <div class="crd crd-full rv rv-d4"><div class="crd-icon"><i class="fas fa-seedling"></i></div><h3>A Long Term Perspective on Author Success</h3><p>We do not think about your book in isolation. We think about your long term development as an author and how the marketing work we do today contributes to building a stronger author brand, a more loyal readership, and a more sustainable sales trajectory over time. We are interested in building the kind of strategic foundation that supports your growth as an author for years to come.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sect bg2">
+        <div class="container">
+            <div class="s-header rv"><div class="s-badge">Our Process</div><h2 class="s-title">How We Work With Every Author at <span class="g">Josephine Marketing Hub</span></h2><div class="s-div"></div><p class="s-desc">Our process is structured, deliberate, and designed to ensure that every project receives the level of attention, research, and professional execution that produces real results.</p></div>
+            <div class="steps-r rv">
+                <div class="step"><div class="step-c">01</div><h4>Book Submission</h4><p>Submit your book details through our structured form.</p></div>
+                <div class="step"><div class="step-c">02</div><h4>Strategic Evaluation</h4><p>We conduct a thorough evaluation of your book and market position.</p></div>
+                <div class="step"><div class="step-c">03</div><h4>Written Proposal</h4><p>We send a comprehensive proposal via email outlining our approach.</p></div>
+                <div class="step"><div class="step-c">04</div><h4>Agreement</h4><p>Once confirmed, your project officially begins.</p></div>
+                <div class="step"><div class="step-c">05</div><h4>Execution</h4><p>We execute your strategy with full email reporting.</p></div>
+            </div>
+            <div style="text-align:center;margin-top:48px;" class="rv"><button class="btn btn-o btn-s" onclick="go('process')"><i class="fas fa-arrow-right"></i> View Full Process Details</button></div>
+        </div>
+    </section>
+
+    <section class="sect-sm bg1" style="text-align:center;">
+        <div class="container rv">
+            <div class="s-badge">Our Portfolio</div>
+            <h2 class="s-title" style="max-width:680px;margin:0 auto 14px;">Authors We Have Had the Privilege of <span class="g">Working With</span></h2>
+            <div class="s-div"></div>
+            <p class="s-desc" style="max-width:660px;margin:0 auto 36px;">Each project reflects the same commitment to structured strategy, thorough research, and professional execution that defines everything we do.</p>
+            <button class="btn btn-g" onclick="go('authors')"><i class="fas fa-users"></i> View Our Featured Authors</button>
+        </div>
+    </section>
+
+    <section class="sect bg2">
+        <div class="container">
+            <div class="s-header rv"><div class="s-badge">Our Standard</div><h2 class="s-title">We Hold Ourselves to a Standard Most Marketing Services <span class="g">Do Not</span></h2><div class="s-div"></div></div>
+            <div class="cb rv">
+                <p>At Josephine Marketing Hub we operate according to a set of professional standards that shape every decision we make and every interaction we have with the authors we work with.</p>
+                <ul class="std-list">
+                    <li>We believe that authors deserve complete transparency about what their marketing engagement will involve and what results it is designed to achieve.</li>
+                    <li>We believe that every promise made to an author must be backed by a documented plan and executed with full accountability.</li>
+                    <li>We believe that book marketing is a discipline that requires genuine expertise, continuous research, and deep knowledge of the publishing industry.</li>
+                    <li>We believe that the relationship between an author and their marketing specialist should be built on clear communication, mutual respect, and a shared commitment to achieving the best possible outcome for the book.</li>
+                </ul>
+                <p>These beliefs are not simply words on a page. They are reflected in the structure of our process, the quality of our work, and the standard of communication we maintain with every author we serve.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta bg1">
+        <div class="container"><div class="cta-in rv">
+            <div class="s-badge">Get Started</div>
+            <h2 class="cta-h">If Your Book Deserves a Professional Marketing Strategy Then This Is Where That Journey Begins</h2>
+            <div class="s-div"></div>
+            <p class="cta-p">You have invested significant time, energy, creative effort, and personal commitment into writing your book. That investment deserves to be matched by an equally serious and professional approach to marketing it.</p>
+            <p class="cta-note">To discuss service details and engagement terms please reach out at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></p>
+            <div class="cta-btns">
+                <button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Submit Your Book for Review</button>
+                <a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-o"><i class="fas fa-envelope"></i> Contact Us via Email</a>
+            </div>
+        </div></div>
+    </section>
+</div>
+
+<!-- ======================== ABOUT ======================== -->
+<div class="pg" id="pg-about">
+    <div class="ph bg1"><div class="container"><div class="ph-in">
+        <div class="ph-badge"><i class="fas fa-info-circle"></i> About Us</div>
+        <h1 class="ph-title">The Story, The Standard, and The Specialist Expertise Behind <span class="g">Josephine Marketing Hub</span></h1>
+        <div class="s-div"></div>
+        <p class="ph-desc">One of the Most Structured Book Marketing Agencies Available to Authors Today</p>
+    </div></div></div>
+
+    <section class="sect bg2"><div class="container"><div class="cb rv">
+        <h2 class="cb-head">We Are Not a General Marketing Agency That Also Handles Books. We Are a <span class="g">Book Marketing Specialist Agency</span> That Handles Nothing Else.</h2>
+        <p>Josephine Marketing Hub was built with a clear and deliberate purpose. To provide authors with the kind of structured, deeply researched, and expertly executed marketing support that transforms books from overlooked titles into strategically positioned and consistently selling works that reach the audiences they were written for.</p>
+        <p>The publishing industry is unique. It operates according to its own logic, its own platforms, its own reader behaviors, and its own set of competitive dynamics that are fundamentally different from any other market.</p>
+        <p>This is why Josephine Marketing Hub operates exclusively within the publishing industry. We do not divide our attention across multiple industries or apply generic marketing frameworks to books the way a general agency would.</p>
+    </div></div></section>
+
+    <section class="sect bg1"><div class="container"><div class="cb rv">
+        <h2 class="cb-head">Our Core Philosophy on Book Marketing and What It Means for <span class="g">Every Author We Work With</span></h2>
+        <p>Book marketing is not a collection of random tactics. It is not about posting on social media without a strategy, running advertisements without a foundation of research, or applying the same generic approach to every book regardless of genre, audience, or market position. Book marketing done properly is a structured discipline that begins with deep research, proceeds through careful strategic planning, and is executed with precision and full accountability.</p>
+        <p>When an author submits their book to us we do not immediately reach for a standard template. We begin by asking questions and doing research. What is the book about. Who is the ideal reader. What does the competitive landscape look like. What has already been tried and what were the results.</p>
+        <p>Only after we have a thorough understanding of all of these factors do we begin to develop a strategic recommendation specific to this book, this author, and this set of circumstances.</p>
+    </div></div></section>
+
+    <section class="sect bg2"><div class="container">
+        <div class="cb rv">
+            <h2 class="cb-head">Why Every Aspect of Your Project Is Handled Through Email and Why This Makes a <span class="g">Significant Difference</span></h2>
+            <p>One of the most distinctive aspects of how Josephine Marketing Hub operates is our commitment to conducting all project communication exclusively through email. This is not a limitation. It is a professional choice rooted in a deep understanding of what authors need from their marketing partner.</p>
+        </div>
+        <div class="cg2 rv" style="margin-top:42px;">
+            <div class="bf-card"><h4>A Complete and Permanent Record</h4><p>When every conversation, recommendation, approval, and update happens in writing there is never any ambiguity about what was agreed, decided, or promised.</p></div>
+            <div class="bf-card"><h4>Full Accountability at Every Stage</h4><p>Every commitment we make is documented in writing. Nothing exists only in a verbal conversation that can be forgotten, misinterpreted, or disputed.</p></div>
+            <div class="bf-card"><h4>Clarity That Protects Your Project</h4><p>Documented email communication ensures clarity is built into every stage of your project rather than being something you have to chase or request.</p></div>
+            <div class="bf-card"><h4>Professional Standard of Engagement</h4><p>Authors who are serious about their books deserve to work with a marketing partner who is equally serious about how they operate and communicate.</p></div>
+        </div>
+    </div></section>
+
+    <section class="sect bg1"><div class="container">
+        <div class="s-header rv"><div class="s-badge">Our Values</div><h2 class="s-title">The Values That Guide Every Decision at <span class="g">Josephine Marketing Hub</span></h2><div class="s-div"></div></div>
+        <div class="cg2 rv">
+            <div class="crd"><h3 style="color:var(--gold)">Specialization</h3><p>We believe genuine expertise is built through focus. By working exclusively in book marketing we develop a depth of knowledge that generalists cannot match.</p></div>
+            <div class="crd"><h3 style="color:var(--gold)">Structure</h3><p>Every project follows a clear and organized process. Every recommendation is grounded in research. Every strategy is built around defined objectives and measurable outcomes.</p></div>
+            <div class="crd"><h3 style="color:var(--gold)">Accountability</h3><p>Our documented email system, structured reporting, and clearly defined milestones ensure accountability is built into every aspect of how we work.</p></div>
+            <div class="crd"><h3 style="color:var(--gold)">Transparency</h3><p>We are completely honest about what is achievable, what our strategy involves, and what we are doing at every stage. No hidden processes or vague explanations.</p></div>
+            <div class="crd"><h3 style="color:var(--gold)">Professionalism</h3><p>Every interaction, from the first email to the final report, reflects the highest standard of professional conduct in communication, structure, and quality.</p></div>
+            <div class="crd"><h3 style="color:var(--gold)">Long Term Thinking</h3><p>We build foundations that serve authors for their entire career, not just one launch. Every strategy looks beyond immediate results to sustained growth.</p></div>
+        </div>
+    </div></section>
+
+    <section class="sect bg2"><div class="container">
+        <div class="s-header rv"><div class="s-badge">Our Direction</div><h2 class="s-title">Mission and <span class="g">Vision</span></h2><div class="s-div"></div></div>
+        <div class="mv rv">
+            <div class="mv-box mission"><h3>Our Mission</h3><p>To provide authors with the structured, expert, and deeply accountable book marketing support they need to achieve genuine and measurable growth in visibility, readership, and sales in today's competitive publishing market.</p></div>
+            <div class="mv-box vision"><h3>Our Vision</h3><p>To be recognized as the most structured, most accountable, and most results focused book marketing specialist agency available to authors across every genre and publishing stage.</p></div>
+        </div>
+    </div></section>
+
+    <section class="cta bg1"><div class="container"><div class="cta-in rv">
+        <h2 class="cta-h">You Have Written the Book. Now Let Us Build the Strategy That Gets It the Attention It Deserves.</h2>
+        <div class="s-div"></div>
+        <p class="cta-note">To discuss service details please email us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></p>
+        <div class="cta-btns"><button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Submit Your Book for Review</button></div>
+    </div></div></section>
+</div>
+
+<!-- ======================== SERVICES ======================== -->
+<div class="pg" id="pg-services">
+    <div class="ph bg1"><div class="container"><div class="ph-in">
+        <div class="ph-badge"><i class="fas fa-briefcase"></i> Our Services</div>
+        <h1 class="ph-title">Professional Book Marketing <span class="g">Services</span></h1>
+        <div class="s-div"></div>
+        <p class="ph-desc">Structured, Specialist, and Deeply Researched Marketing Services Built Exclusively for Authors Who Are Serious About Results</p>
+    </div></div></div>
+
+    <section class="sect bg2"><div class="container">
+        <div class="cb rv" style="margin-bottom:62px;">
+            <p>Every service offered by Josephine Marketing Hub has been developed to give authors access to specialist marketing support, strategic depth, and professional execution that produces real and measurable outcomes.</p>
+            <p>All services are delivered through documented email communication. To discuss service details and engagement terms please contact us at <a href="mailto:josephinemarketinghub@gmail.com" class="gl">josephinemarketinghub@gmail.com</a></p>
+        </div>
+
+        <div class="svc rv">
+            <div class="svc-num">01</div><h2 class="svc-title">Book Launch Strategy and Campaign Planning</h2>
+            <div class="svc-ov"><p>The moment a book enters the market is one of the most critical moments in its commercial life. A strong launch creates momentum that drives visibility and sales long after launch day. This is a comprehensive strategic framework built around your book, genre, and launch goals.</p></div>
+            <h3 class="svc-label">What This Service Involves</h3>
+            <div class="svc-it"><h4>Comprehensive Pre Launch Research and Analysis</h4><p>Thorough research into your book, genre, target audience, and competitive landscape to identify specific opportunities for your book to stand out.</p></div>
+            <div class="svc-it"><h4>Target Audience Development and Reader Profile Creation</h4><p>Detailed reader profiles capturing demographics, reading habits, purchasing behaviors, and decision making patterns of your ideal audience.</p></div>
+            <div class="svc-it"><h4>Strategic Positioning and Differentiation Analysis</h4><p>Detailed analysis of how your book should be positioned relative to other titles in your genre and how to communicate its distinctiveness effectively.</p></div>
+            <div class="svc-it"><h4>Core Marketing Message and Copy Development</h4><p>Comprehensive set of marketing messages including book description, hook statement, author positioning, and key campaign messages.</p></div>
+            <div class="svc-it"><h4>Multi Channel Launch Strategy and Execution Roadmap</h4><p>Structured roadmap with channels, platforms, tactics, timelines, and milestones for each phase of your campaign.</p></div>
+            <div class="svc-it"><h4>Pre Launch, Launch Day, and Post Launch Strategy</h4><p>Complete planning for every phase including visibility building, launch day execution, and post launch momentum strategy.</p></div>
+            <div class="svc-ft"><span class="svc-ft-text">To discuss this service contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></span><a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-g btn-s">Request Full Information</a></div>
+        </div>
+
+        <div class="svc rv">
+            <div class="svc-num">02</div><h2 class="svc-title">Amazon Book Optimization and Marketplace Positioning</h2>
+            <div class="svc-ov"><p>Amazon is the most powerful book discovery and sales platform in the world. Most authors do not understand how to optimize their presence for genuine visibility and sales conversion. Our service addresses every critical element of your Amazon presence.</p></div>
+            <h3 class="svc-label">What This Service Involves</h3>
+            <div class="svc-it"><h4>In Depth Amazon Keyword Research</h4><p>Exhaustive keyword research to identify exact terms your ideal readers use to find books like yours on Amazon.</p></div>
+            <div class="svc-it"><h4>Optimized Book Title and Subtitle Strategy</h4><p>Detailed recommendations for maximizing both discoverability and reader appeal through title and subtitle optimization.</p></div>
+            <div class="svc-it"><h4>Professionally Written Amazon Book Description</h4><p>Strategically crafted description combining keyword integration with compelling copy designed to drive purchase decisions.</p></div>
+            <div class="svc-it"><h4>Backend Keyword and Category Optimization</h4><p>Comprehensive backend keyword strategy and category analysis to identify optimal placements for your book.</p></div>
+            <div class="svc-it"><h4>Author Central Page and Competitive Analysis</h4><p>Complete Author Central optimization and competitive positioning review delivered via comprehensive email report.</p></div>
+            <div class="svc-ft"><span class="svc-ft-text">To discuss this service contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></span><a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-g btn-s">Request Full Information</a></div>
+        </div>
+
+        <div class="svc rv">
+            <div class="svc-num">03</div><h2 class="svc-title">Paid Advertising Campaign Management</h2>
+            <div class="svc-ov"><p>Paid advertising is one of the most powerful tools available to authors. When managed with genuine expertise, a well planned campaign can dramatically increase visibility and produce sustained sales increases. We handle every aspect from strategy through execution and reporting.</p></div>
+            <h3 class="svc-label">What This Service Involves</h3>
+            <div class="svc-it"><h4>Advertising Strategy and Campaign Architecture</h4><p>Comprehensive strategy tailored to your book, audience, and goals defining campaign structure, targeting, messaging, and performance objectives.</p></div>
+            <div class="svc-it"><h4>Audience Research, Ad Copy, and Campaign Setup</h4><p>Detailed audience segmentation, multiple ad copy variations, and complete technical implementation across Amazon and Meta platforms.</p></div>
+            <div class="svc-it"><h4>Monitoring, Optimization, and Email Reporting</h4><p>Active performance monitoring, strategic optimization, and regular structured email reports documenting all data, decisions, and results.</p></div>
+            <div class="svc-ft"><span class="svc-ft-text">To discuss this service contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></span><a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-g btn-s">Request Full Information</a></div>
+        </div>
+
+        <div class="svc rv">
+            <div class="svc-num">04</div><h2 class="svc-title">Author Brand Strategy and Positioning Development</h2>
+            <div class="svc-ov"><p>Every author who aspires to build a lasting presence needs a clearly defined author brand. A strong brand builds reader loyalty, differentiates you from competitors, and makes every individual marketing campaign more effective.</p></div>
+            <h3 class="svc-label">What This Service Involves</h3>
+            <div class="svc-it"><h4>Comprehensive Author Brand Audit</h4><p>Thorough audit of your current brand including online presence, positioning, and the gap between where your brand stands and where it needs to be.</p></div>
+            <div class="svc-it"><h4>Brand Identity, Messaging, and Voice Development</h4><p>Complete brand identity definition, messaging framework, author biography development, and detailed brand voice guidelines.</p></div>
+            <div class="svc-it"><h4>Platform Strategy and Long Term Roadmap</h4><p>Strategic platform recommendations and structured long term roadmap for continued brand development delivered via comprehensive email document.</p></div>
+            <div class="svc-ft"><span class="svc-ft-text">To discuss this service contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></span><a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-g btn-s">Request Full Information</a></div>
+        </div>
+
+        <div class="svc rv">
+            <div class="svc-num">05</div><h2 class="svc-title">Comprehensive Book Marketing Audit and Strategic Consultation</h2>
+            <div class="svc-ov"><p>For authors who need expert direction before committing to a full campaign. A thorough assessment of your current marketing situation followed by a detailed strategic consultation delivered entirely via email.</p></div>
+            <h3 class="svc-label">What This Service Involves</h3>
+            <div class="svc-it"><h4>Complete Situation Analysis and Gap Identification</h4><p>Thorough analysis of your book positioning, platform optimization, marketing channels, sales patterns, and identification of gaps and missed opportunities.</p></div>
+            <div class="svc-it"><h4>Strategic Recommendations and Priority Action Plan</h4><p>Comprehensive recommendation document with specific, prioritized guidance plus a structured action plan for implementation.</p></div>
+            <div class="svc-it"><h4>Written Report and Follow Up Email Support</h4><p>Complete consultation report delivered via email followed by a defined period of follow up support for clarification and guidance.</p></div>
+            <div class="svc-ft"><span class="svc-ft-text">To discuss this service contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></span><a href="mailto:josephinemarketinghub@gmail.com" class="btn btn-g btn-s">Request Full Information</a></div>
+        </div>
+
+        <div class="cta" style="padding:62px 0 0;"><div class="cta-in rv">
+            <h2 class="cta-h" style="font-size:1.95rem;">Not Sure Which Service Is Right for You?</h2>
+            <p class="cta-note">Submit your book details or email us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></p>
+            <div class="cta-btns"><button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Submit Your Book</button></div>
+        </div></div>
+    </div></section>
+</div>
+
+<!-- ======================== PROCESS ======================== -->
+<div class="pg" id="pg-process">
+    <div class="ph bg1"><div class="container"><div class="ph-in">
+        <div class="ph-badge"><i class="fas fa-cogs"></i> Our Process</div>
+        <h1 class="ph-title">Our <span class="g">Structured Process</span></h1>
+        <div class="s-div"></div>
+        <p class="ph-desc">A Clear, Organized, and Fully Documented Process Ensuring Consistent, Professional, and Accountable Project Management</p>
+    </div></div></div>
+
+    <section class="sect bg2"><div class="container">
+        <div class="cb rv" style="margin-bottom:78px;">
+            <p>At Josephine Marketing Hub we believe that the way a project is managed is just as important as the quality of the marketing strategy it delivers. Every author moves through the same clearly defined process regardless of which service they have engaged.</p>
+        </div>
+
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">01</div><div class="prb-line"></div></div>
+            <div class="prb-body"><h3>Book Submission</h3><p>Every project begins with a book submission. Our form gathers all foundational information for a meaningful initial assessment. The quality of information you provide directly influences the depth and accuracy of our evaluation.</p>
+                <ul class="chk"><li>Your full name and author name</li><li>Book title, genre, and publishing status</li><li>Service you are interested in</li><li>Description of your marketing goals and current situation</li><li>Any specific challenges you want us to address</li></ul>
+            </div>
+        </div>
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">02</div><div class="prb-line"></div></div>
+            <div class="prb-body"><h3>Strategic Evaluation</h3><p>We conduct a real and substantive evaluation of your book and marketing situation. We review every element of your submission, research your genre, assess the competitive landscape, and determine which approach will genuinely serve your needs most effectively.</p><p>We respond to every submission via email within 2 to 3 business days of receipt.</p></div>
+        </div>
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">03</div><div class="prb-line"></div></div>
+            <div class="prb-body"><h3>Written Proposal Delivery</h3><p>We send a detailed and structured project proposal via email giving you complete visibility into what we are recommending, why, and what the full scope will involve. You are under no obligation to proceed.</p>
+                <ul class="chk"><li>Assessment of your current marketing situation</li><li>Recommended service with detailed explanation</li><li>Comprehensive scope of work with deliverables</li><li>Project timeline with defined milestones</li><li>Communication and reporting structure</li></ul>
+            </div>
+        </div>
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">04</div><div class="prb-line"></div></div>
+            <div class="prb-body"><h3>Agreement and Project Activation</h3><p>Projects begin when you have confirmed your agreement in writing via email and completed the required steps. This ensures terms are clearly agreed before any work begins with no ambiguity about commitments.</p></div>
+        </div>
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">05</div><div class="prb-line"></div></div>
+            <div class="prb-body"><h3>Strategy Execution</h3><p>Our team executes the marketing strategy defined in your proposal. Every aspect is conducted according to the agreed scope. We do not make unilateral decisions about significant changes without communicating with you first via email.</p></div>
+        </div>
+        <div class="prb rv">
+            <div class="prb-ind"><div class="prb-num">06</div></div>
+            <div class="prb-body"><h3>Email Reporting and Project Updates</h3><p>You receive structured written reports throughout your project giving you complete visibility into everything being done on your behalf.</p>
+                <div class="rg">
+                    <div class="rc"><h4>Progress Updates</h4><p>Documenting all activity completed, milestones achieved, and observations from work in progress.</p></div>
+                    <div class="rc"><h4>Performance Reports</h4><p>Documenting all metrics, results, optimization decisions, and ongoing management observations.</p></div>
+                    <div class="rc"><h4>Milestone Reports</h4><p>Specific reports at each milestone documenting everything completed and results against objectives.</p></div>
+                    <div class="rc"><h4>Final Completion Report</h4><p>Comprehensive report documenting all work conducted, results achieved, and summary assessment.</p></div>
+                </div>
+            </div>
+        </div>
+    </div></section>
+
+    <section class="cta bg1"><div class="container"><div class="cta-in rv">
+        <h2 class="cta-h">A Process That Protects Your Project and Ensures the Highest Standard of Service</h2>
+        <div class="s-div"></div>
+        <div class="cta-btns"><button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Begin the Process by Submitting Your Book</button></div>
+    </div></div></section>
+</div>
+
+<!-- ======================== FEATURED AUTHORS ======================== -->
+<div class="pg" id="pg-authors">
+    <div class="ph bg1"><div class="container"><div class="ph-in">
+        <div class="ph-badge"><i class="fas fa-star"></i> Our Portfolio</div>
+        <h1 class="ph-title"><span class="g">Featured Authors</span></h1>
+        <div class="s-div"></div>
+        <p class="ph-desc">A Portfolio of Authors Who Trusted Josephine Marketing Hub to Plan, Build, and Execute the Professional Marketing of Their Books</p>
+    </div></div></div>
+
+    <section class="sect bg2"><div class="container">
+        <div class="cb rv" style="margin-bottom:58px;">
+            <p>The authors featured on this page represent a selection of projects we have had the privilege of working on. Each was approached with the same commitment to thorough research, strategic precision, structured execution, and full accountability that defines everything we do.</p>
+        </div>
+
+        <!-- Larry Fuqua -->
+        <div class="ac rv">
+            <div class="ac-grid">
+                <div class="ac-vis">
+                    <div class="ac-pw" onclick="showImg('Larrypic.jpg','Larry Fuqua')">
+                        <img src="Larrypic.jpg" alt="Larry Fuqua" class="ac-photo">
+                        <div class="ac-po"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="ac-bw" onclick="showImg('Larrybook.webp','Larry Fuqua Book')">
+                        <img src="Larrybook.webp" alt="Larry Fuqua Book" class="ac-book">
+                        <div class="ac-bo"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+                <div class="ac-info">
+                    <h2 class="ac-name">Larry Fuqua</h2>
+                    <div class="ac-row"><span class="ac-lbl">Contact</span><span class="ac-val"><a href="mailto:authorlaryyfuqua@outlook.com">authorlaryyfuqua@outlook.com</a></span></div>
+                    <div class="ac-row"><span class="ac-lbl">Services Provided</span><span class="ac-val">Book Launch Strategy, Amazon Optimization, Author Brand Strategy</span></div>
+                    <div class="ac-row"><span class="ac-lbl">Project Status</span><span class="ac-val" style="color:var(--gold);font-weight:600;">Completed</span></div>
+                    <div class="ac-qt">
+                        <p>"Working with Josephine Marketing Hub was a game changer for my book. The structured approach, the detailed strategy, and the constant email updates gave me complete confidence that my book was in the hands of true professionals. I could see every step being documented and every decision being made with clear reasoning behind it. The results exceeded my expectations."</p>
+                        <div class="ac-qt-n">Larry Fuqua</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Madeline Miller -->
+        <div class="ac rv">
+            <div class="ac-grid">
+                <div class="ac-vis">
+                    <div class="ac-pw" onclick="showImg('Madelinepic.jpg','Madeline Miller')">
+                        <img src="Madelinepic.jpg" alt="Madeline Miller" class="ac-photo">
+                        <div class="ac-po"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="ac-bw" onclick="showImg('Madeline book.jpg','Madeline Miller Book')">
+                        <img src="Madeline book.jpg" alt="Madeline Miller Book" class="ac-book">
+                        <div class="ac-bo"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+                <div class="ac-info">
+                    <h2 class="ac-name">Madeline Miller</h2>
+                    <div class="ac-row"><span class="ac-lbl">Contact</span><span class="ac-val"><a href="mailto:madelinemiller222@gmail.com">madelinemiller222@gmail.com</a></span></div>
+                    <div class="ac-row"><span class="ac-lbl">Services Provided</span><span class="ac-val">Comprehensive Marketing Audit, Amazon Optimization, Paid Advertising Campaign Management</span></div>
+                    <div class="ac-row"><span class="ac-lbl">Project Status</span><span class="ac-val" style="color:var(--gold);font-weight:600;">Completed</span></div>
+                    <div class="ac-qt">
+                        <p>"Before Josephine Marketing Hub I had tried multiple marketing approaches that produced very little in return. The difference was immediately clear. Everything was structured, every recommendation was backed by research, and every update arrived in writing exactly when they said it would. My book finally started reaching the readers it was written for."</p>
+                        <div class="ac-qt-n">Madeline Miller</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barb Rosenstock -->
+        <div class="ac rv">
+            <div class="ac-grid">
+                <div class="ac-vis">
+                    <div class="ac-pw" onclick="showImg('Vicentpic.jpg','Barb Rosenstock')">
+                        <img src="Vicentpic.jpg" alt="Barb Rosenstock" class="ac-photo">
+                        <div class="ac-po"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="ac-bw" onclick="showImg('Vicentbook.webp','Barb Rosenstock Book')">
+                        <img src="Vicentbook.webp" alt="Barb Rosenstock Book" class="ac-book">
+                        <div class="ac-bo"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+                <div class="ac-info">
+                    <h2 class="ac-name">Barb Rosenstock</h2>
+                    <div class="ac-row"><span class="ac-lbl">Contact</span><span class="ac-val"><a href="mailto:connect.authorbarbrosenstock@proton.me">connect.authorbarbrosenstock@proton.me</a></span></div>
+                    <div class="ac-row"><span class="ac-lbl">Services Provided</span><span class="ac-val">Book Launch Strategy, Author Brand Strategy and Positioning Development, Amazon Optimization</span></div>
+                    <div class="ac-row"><span class="ac-lbl">Project Status</span><span class="ac-val" style="color:var(--gold);font-weight:600;">Completed</span></div>
+                    <div class="ac-qt">
+                        <p>"What impressed me most about Josephine Marketing Hub was their commitment to documentation and accountability. Every conversation happened through email which meant I always had a record of what was discussed and decided. The strategy they built was thorough, specific, and clearly grounded in real research about my genre and my readers. I would recommend them to any author who is serious about professional marketing."</p>
+                        <div class="ac-qt-n">Barb Rosenstock</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta" style="padding:62px 0 0;"><div class="cta-in rv">
+            <h2 class="cta-h">Your Book and Your Name Could Be Part of This Portfolio</h2>
+            <div class="s-div"></div>
+            <p class="cta-p">Every author featured here began by taking a single step. They submitted their book details, we evaluated their project, and together we built a marketing approach that reflected the quality of their work.</p>
+            <div class="cta-btns"><button class="btn btn-g" onclick="go('contact')"><i class="fas fa-paper-plane"></i> Submit Your Book for Review</button></div>
+        </div></div>
+    </div></section>
+</div>
+
+<!-- ======================== CONTACT ======================== -->
+<div class="pg" id="pg-contact">
+    <div class="ph bg1"><div class="container"><div class="ph-in">
+        <div class="ph-badge"><i class="fas fa-envelope"></i> Contact Us</div>
+        <h1 class="ph-title">Submit Your Book for <span class="g">Professional Review</span></h1>
+        <div class="s-div"></div>
+        <p class="ph-desc">The First Step Toward a Structured, Expert, and Fully Accountable Book Marketing Strategy</p>
+    </div></div></div>
+
+    <section class="sect bg2"><div class="container">
+        <div class="cn-notice rv">
+            <h3><i class="fas fa-info-circle"></i> Please Read Before Submitting</h3>
+            <p>At Josephine Marketing Hub we operate an exclusively email based project communication model. All consultations, project discussions, proposals, strategic recommendations, progress updates, and final reports are conducted entirely through email.</p>
+            <p>We do not conduct telephone consultations. We do not engage in video meetings. We do not communicate through social media platforms or messaging applications.</p>
+            <p>This ensures every aspect of your project is fully documented from the very first exchange. You have a complete and permanent written record of every conversation, recommendation, and result.</p>
+            <p>For all service details and engagement terms please contact us at <a href="mailto:josephinemarketinghub@gmail.com">josephinemarketinghub@gmail.com</a></p>
+        </div>
+
+        <div class="form-c rv">
+            <h2 class="form-t">Book Submission Form</h2>
+            <form action="https://formspree.io/f/xrejagwn" method="POST" id="bkForm" class="form-g">
+                <div class="fg"><label>Full Name *</label><input type="text" name="Full Name" placeholder="Your full name" required></div>
+                <div class="fg"><label>Author Name (if different)</label><input type="text" name="Author Name" placeholder="Author pen name"></div>
+                <div class="fg"><label>Email Address *</label><input type="email" name="Email Address" placeholder="your@email.com" required></div>
+                <div class="fg"><label>Book Title *</label><input type="text" name="Book Title" placeholder="Your book title" required></div>
+                <div class="fg"><label>Subtitle (if applicable)</label><input type="text" name="Subtitle" placeholder="Book subtitle"></div>
+                <div class="fg"><label>Genre *</label><input type="text" name="Genre" placeholder="Book genre" required></div>
+                <div class="fg fw"><label>Target Readership</label><input type="text" name="Target Readership" placeholder="Brief description of who the book is written for"></div>
+                <div class="fg">
+                    <label>Publishing Status *</label>
+                    <select name="Publishing Status" required>
+                        <option value="" disabled selected>Select status</option>
+                        <option>Not Yet Published</option>
+                        <option>Currently in the Publishing Process</option>
+                        <option>Recently Published (within 6 months)</option>
+                        <option>Published (more than 6 months ago)</option>
+                        <option>Self Published</option>
+                        <option>Traditionally Published</option>
+                    </select>
+                </div>
+                <div class="fg">
+                    <label>Service Interested In *</label>
+                    <select name="Service Interested In" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option>Book Launch Strategy and Campaign Planning</option>
+                        <option>Amazon Book Optimization</option>
+                        <option>Paid Advertising Campaign Management</option>
+                        <option>Author Brand Strategy</option>
+                        <option>Marketing Audit and Consultation</option>
+                        <option>Not Sure Yet</option>
+                    </select>
+                </div>
+                <div class="fg fw"><label>Current Marketing Situation *</label><textarea name="Current Marketing Situation" placeholder="Describe what marketing you have done so far, results achieved, and what you believe is preventing your book from reaching its potential." required></textarea></div>
+                <div class="fg fw"><label>Marketing Goals *</label><textarea name="Marketing Goals" placeholder="Describe in detail what you hope to achieve through working with Josephine Marketing Hub." required></textarea></div>
+                <div class="fg fw"><label>Additional Information</label><textarea name="Additional Information" placeholder="Any other details about your book, audience, or situation." style="min-height:98px;"></textarea></div>
+                <div class="fg fw"><label>How Did You Hear About Us</label><input type="text" name="How Did You Hear About Us" placeholder="How did you find us"></div>
+                <div class="form-sub"><button type="submit" class="form-sub-btn" id="subBtn"><i class="fas fa-paper-plane"></i> Submit My Book for Review</button></div>
+            </form>
+        </div>
+
+        <div class="ps rv">
+            <h3 class="ps-t">What Happens After You Submit</h3>
+            <div class="ps-g">
+                <div class="ps-s"><div class="ps-n">1</div><h4>Submission Received</h4><p>Your details are received and carefully reviewed by our team.</p></div>
+                <div class="ps-s"><div class="ps-n">2</div><h4>Initial Assessment</h4><p>We evaluate your book, genre, goals, and current situation.</p></div>
+                <div class="ps-s"><div class="ps-n">3</div><h4>Email Response</h4><p>We respond within 2 to 3 business days with our assessment.</p></div>
+                <div class="ps-s"><div class="ps-n">4</div><h4>Written Proposal</h4><p>If we can help, we send a comprehensive proposal via email.</p></div>
+                <div class="ps-s"><div class="ps-n">5</div><h4>Review and Confirm</h4><p>You review at your pace and respond with questions or confirmation.</p></div>
+                <div class="ps-s"><div class="ps-n">6</div><h4>Project Activation</h4><p>Once confirmed, the structured execution process begins.</p></div>
+            </div>
+        </div>
+
+        <div class="de-box rv">
+            <h3>Prefer to Reach Us Directly via Email</h3>
+            <p>If you prefer to send a direct email, please include your book title, genre, publishing status, and a brief description of your goals.</p>
+            <a href="mailto:josephinemarketinghub@gmail.com" class="de-link"><i class="fas fa-envelope"></i> josephinemarketinghub@gmail.com</a>
+            <p class="de-note">All communications will be handled exclusively through email in accordance with our documented communication policy.</p>
+        </div>
+    </div></section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container-w">
+        <div class="ft-grid">
+            <div>
+                <div class="nav-brand" onclick="go('home')" style="cursor:pointer;">
+                    <img src="Josephines.png" alt="JMH" class="nav-brand-img">
+                    <div class="nav-brand-info"><span class="nav-brand-title">Josephine Marketing Hub</span><span class="nav-brand-sub">Book Marketing Specialist</span></div>
+                </div>
+                <p class="ft-desc">A Specialist Book Marketing Agency Dedicated to Delivering Structured, Expert, and Fully Accountable Marketing Solutions for Serious Authors.</p>
+                <a href="mailto:josephinemarketinghub@gmail.com" class="ft-email"><i class="fas fa-envelope"></i> josephinemarketinghub@gmail.com</a>
+            </div>
+            <div>
+                <h4 class="ft-col-t">Quick Links</h4>
+                <ul class="ft-links">
+                    <li><a href="#" onclick="go('home');return false;">Home</a></li>
+                    <li><a href="#" onclick="go('about');return false;">About</a></li>
+                    <li><a href="#" onclick="go('services');return false;">Services</a></li>
+                    <li><a href="#" onclick="go('process');return false;">Our Process</a></li>
+                    <li><a href="#" onclick="go('authors');return false;">Featured Authors</a></li>
+                    <li><a href="#" onclick="go('contact');return false;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="ft-col-t">Our Services</h4>
+                <ul class="ft-links">
+                    <li><a href="#" onclick="go('services');return false;">Book Launch Strategy</a></li>
+                    <li><a href="#" onclick="go('services');return false;">Amazon Optimization</a></li>
+                    <li><a href="#" onclick="go('services');return false;">Paid Advertising</a></li>
+                    <li><a href="#" onclick="go('services');return false;">Author Brand Strategy</a></li>
+                    <li><a href="#" onclick="go('services');return false;">Marketing Audit</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ft-bot">
+            <span class="ft-copy">Copyright 2025 Josephine Marketing Hub. All Rights Reserved.</span>
+            <span class="ft-tag">Positioning Books. Delivering Results. Building Author Legacies.</span>
+        </div>
+    </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+// Preloader
+window.addEventListener('load',function(){setTimeout(function(){document.getElementById('preloader').classList.add('done');},2500);});
+
+// Navigation
+function go(pg){
+    document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+    var t=document.getElementById('pg-'+pg);
+    if(t){setTimeout(function(){t.classList.add('on');},70);}
+    document.querySelectorAll('#navLinks .nav-link').forEach(function(l){
+        l.classList.remove('on');
+        if(l.getAttribute('data-pg')===pg)l.classList.add('on');
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(initRv,220);
+}
+
+// Mobile
+function togMob(){
+    document.getElementById('mobTog').classList.toggle('open');
+    document.getElementById('mobMenu').classList.toggle('open');
+    document.body.style.overflow=document.getElementById('mobMenu').classList.contains('open')?'hidden':'';
+}
+function closeMob(){
+    document.getElementById('mobTog').classList.remove('open');
+    document.getElementById('mobMenu').classList.remove('open');
+    document.body.style.overflow='';
+}
+
+// Navbar scroll
+window.addEventListener('scroll',function(){
+    document.getElementById('nav').classList.toggle('fixed',window.scrollY>55);
+    document.getElementById('stt').classList.toggle('on',window.scrollY>420);
+});
+
+// Reveal
+function initRv(){
+    var obs=new IntersectionObserver(function(en){
+        en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+    },{threshold:0.07,rootMargin:'0px 0px -35px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+}
+
+// Particles
+function mkPts(){
+    var c=document.getElementById('pts');if(!c)return;
+    for(var i=0;i<32;i++){
+        var p=document.createElement('div');p.classList.add('hero-pt');
+        var s=Math.random()*3+1;
+        p.style.width=s+'px';p.style.height=s+'px';
+        p.style.left=Math.random()*100+'%';
+        p.style.animationDelay=Math.random()*10+'s';
+        p.style.animationDuration=(Math.random()*7+5)+'s';
+        c.appendChild(p);
+    }
+}
+
+// Lightbox
+function showImg(src,alt){
+    var lb=document.getElementById('lb'),img=document.getElementById('lbImg');
+    img.src=src;img.alt=alt||'';
+    lb.style.display='flex';
+    setTimeout(function(){lb.classList.add('show');},10);
+    document.body.style.overflow='hidden';
+}
+function closeLb(){
+    var lb=document.getElementById('lb');
+    lb.classList.remove('show');
+    setTimeout(function(){lb.style.display='none';},350);
+    document.body.style.overflow='';
+}
+document.getElementById('lb').addEventListener('click',function(e){
+    if(e.target===this||e.target.closest('#lbClose'))closeLb();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+// Form
+var fm=document.getElementById('bkForm');
+if(fm){fm.addEventListener('submit',function(){
+    var b=document.getElementById('subBtn');
+    b.innerHTML='<i class="fas fa-spinner fa-spin"></i> Submitting...';b.disabled=true;
+    setTimeout(function(){
+        b.innerHTML='<i class="fas fa-check-circle"></i> Submitted Successfully!';
+        b.style.background='linear-gradient(135deg,#2d8a4e,#1d6b38)';b.style.color='#fff';
+    },3500);
+});}
+
+// Init
+document.addEventListener('DOMContentLoaded',function(){mkPts();initRv();});
+</script>
+</body>
+</html>
